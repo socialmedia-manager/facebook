@@ -10,35 +10,40 @@ Script to unfollow everyone.
  
  **/
 
-let intervalId = setInterval(function () {
-let manageButtons = document.querySelectorAll('div[aria-label="Manage"]');
-let manageButton = manageButtons[0];
-if (manageButton) {
-
-    setTimeout(() => {
-
-        manageButton.click();
-    }, 800);
-    var unfollowButtons = null;
-    let unfollowInterval = setInterval(function () {
+let intervalId = setInterval(function() {
+    let manageButtons = document.querySelectorAll('div[aria-label="Manage"]');
+    let manageButton = manageButtons[0];
+ 
+    if (manageButton) {
 
         setTimeout(() => {
 
-            unfollowButtons = document.querySelector('div[role="menuitem"]');
-            if(unfollowButtons){
-                unfollowButtons.click();
-                window.scrollBy(0, 60);
-            }
-        }, 500);
-        clearInterval(unfollowInterval);
-    }, 500);
-    setTimeout(() => {
+            manageButton.click();
+        }, 800);
+     
+        var unfollowButtons = null;
+        let unfollowInterval = setInterval(function() {
 
-        manageButton.remove();
-        if(unfollowButtons){
-            unfollowButtons.click();
-        }
-    }, 1000);
-} else {
-}
+            setTimeout(() => {
+
+                unfollowButtons = document.querySelector('div[role="menuitem"]');
+                if (unfollowButtons) {
+                    unfollowButtons.click();
+                    window.scrollBy(0, 60);
+                }
+            }, 500);
+            clearInterval(unfollowInterval);
+        }, 500);
+     
+        // setTimeout(() => {
+
+        //     manageButton.remove();
+         
+        //     if (unfollowButtons) {
+        //         unfollowButtons.click();
+        //     }
+        // }, 1000);
+    } else {
+      console.log("Empty buttom")
+    }
 }, 500);
