@@ -10,16 +10,15 @@ Script to unfollow everyone.
  
  **/
 
-let intervalId = setInterval(function() {
+let unfollow = setInterval(function() {
     let manageButtons = document.querySelectorAll('div[aria-label="Manage"]');
     let manageButton = manageButtons[0];
  
     if (manageButton) {
 
         setTimeout(() => {
-
             manageButton.click();
-        }, 800);
+        }, 300);
      
         var unfollowButtons = null;
         let unfollowInterval = setInterval(function() {
@@ -27,23 +26,81 @@ let intervalId = setInterval(function() {
             setTimeout(() => {
 
                 unfollowButtons = document.querySelector('div[role="menuitem"]');
+
                 if (unfollowButtons) {
                     unfollowButtons.click();
                     window.scrollBy(0, 60);
                 }
-            }, 500);
+            }, 300);
+            
             clearInterval(unfollowInterval);
-        }, 500);
+        }, 400);
      
-        // setTimeout(() => {
+        setTimeout(() => {
 
-        //     manageButton.remove();
+            manageButton.remove();
          
-        //     if (unfollowButtons) {
-        //         unfollowButtons.click();
-        //     }
-        // }, 1000);
+            if (unfollowButtons) {
+                unfollowButtons.click();
+            }
+        }, 600);
+
     } else {
-      console.log("Empty buttom")
+      console.log("Empty buttom!")
     }
-}, 500);
+}, 1800);
+
+
+/**
+
+Script to unlike everyone.
+
+1. Go to Settings & Privacy > Feed > Unfollow people and groups
+2. Open console with `CTRL + SHIFT + I`
+3. Select `Console` tab
+4. Copy paste the code.
+5. Press enter.
+ 
+ **/
+
+let unlike = setInterval(function() {
+    let manageButtons = document.querySelectorAll('div[aria-label="Action options"]');
+    let manageButton = manageButtons[0];
+ 
+    if (manageButton) {
+
+        setTimeout(() => {
+            manageButton.click();
+        }, 300);
+     
+        var unfollowButtons = null;
+        let unfollowInterval = setInterval(function() {
+
+            setTimeout(() => {
+
+                unfollowButtons = document.querySelector('div[role="menuitem"]');
+                console.log(unfollowButtons);
+
+                if (unfollowButtons) {
+                    unfollowButtons.click();
+                    window.scrollBy(0, 60);
+                }
+            }, 600);
+            
+            clearInterval(unfollowInterval);
+        }, 600);
+
+    } else {
+      console.log("Empty button!")
+    }
+}, 1800);
+
+
+// scroller = setInterval(function() {
+//     window.scrollBy(0, 60);
+// }, 2100);
+
+// clearInterval(scroller);
+
+
+
